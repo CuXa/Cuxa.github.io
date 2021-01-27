@@ -1,100 +1,36 @@
 {
-	"name": "nvs",
-	"version": "1.6.0",
-	"description": "Node Version Switcher",
-	"main": "lib/index.js",
-	"scripts": {
-		"test": "ava --verbose --serial test/modules/* test/cli/*",
-		"test-cli": "ava --verbose --serial test/cli/*",
-		"test-modules": "ava --verbose --serial test/modules/*",
-		"coverage": "nyc --all ava --serial test/modules/*",
-		"lint": "eslint lib test",
-		"ts-check": "tsc"
-	},
-	"author": "",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/jasongin/nvs"
-	},
-	"devDependencies": {
-		"@types/node": "^13.7.7",
-		"ava": "^3.10.1",
-		"eslint": "^5.16.0",
-		"eslint-config-standard": "^12.0.0",
-		"eslint-plugin-import": "^2.14.0",
-		"eslint-plugin-node": "^7.0.1",
-		"eslint-plugin-promise": "^4.0.1",
-		"eslint-plugin-standard": "^4.0.0",
-		"nyc": "^15.1.0",
-		"rewire": "^2.5.2",
-		"typescript": "^3.7.2"
-	},
-	"ava": {
-		"files": [
-			"test/**/*Tests.js"
-		],
-		"timeout": "10m"
-	},
-	"nyc": {
-		"include": [
-			"lib/**"
-		],
-		"reporter": [
-			"text",
-			"html"
-		]
-	},
-	"eslintConfig": {
-		"env": {
-			"node": true,
-			"es6": true
-		},
-		"parserOptions": {
-			"ecmaVersion": 2017,
-			"sourceType": "script"
-		},
-		"extends": "standard",
-		"plugins": [
-			"standard",
-			"promise"
-		],
-		"rules": {
-			"no-tabs": "off",
-			"no-multi-spaces": [
-				"error",
-				{
-					"ignoreEOLComments": true
-				}
-			],
-			"indent": [
-				"error",
-				"tab",
-				{
-					"SwitchCase": 1
-				}
-			],
-			"semi": [
-				"error",
-				"always"
-			],
-			"space-before-function-paren": [
-				"error",
-				{
-					"anonymous": "always",
-					"named": "never"
-				}
-			],
-			"comma-dangle": [
-				"error",
-				"always-multiline"
-			],
-			"strict": [
-				"error",
-				"global"
-			],
-			"no-var": "error"
-		}
-	},
-	"dependencies": {}
+  "name": "hexo-theme-next",
+  "version": "7.8.0",
+  "description": "Elegant and powerful theme for Hexo.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theme-next/hexo-theme-next.git"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "next"
+  ],
+  "author": "NexT <support@theme-next.org> (https://theme-next.org)",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/theme-next/hexo-theme-next/issues"
+  },
+  "homepage": "https://theme-next.org",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-theme-next": "^1.1.4",
+    "gulp": "^4.0.2",
+    "gulp-eslint": "^6.0.0",
+    "gulp-shell": "^0.8.0",
+    "js-yaml": "^3.13.1",
+    "stylint": "^2.0.0"
+  },
+  "engines": {
+    "node": ">=10.9.0"
+  }
 }

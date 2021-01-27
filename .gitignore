@@ -1,38 +1,15 @@
-# These ignore rules support using the repo simultaneously
-# as the $NVS_HOME directory where node versions are installed.
+.DS_Store
+.idea/
+*.log
+*.iml
+yarn.lock
+package-lock.json
+node_modules/
 
-# User settings file
-/settings.json
+# Ignore optional external libraries
+source/lib/*
 
-# Temporary post-execution scripts
-/nvs_tmp_*
-
-# Node download cache directories
-/*/
-
-# Main code, tests, and docs
-!/lib/
-!/deps/
-!/test/
-!/doc/
-!/tools/
-!/setup/
-!/chocolatey/
-
-# Temporary files generated during testing
-/test/temp
-
-# Exclude packages under node_modules because they are dev dependencies
-/node_modules/
-
-# Default version link
-/default
-
-# Nuget packages
-packages/
-
-# Generated chocolatey package
-*.nupkg
-
-# Other excluded files
-*.suo
+# Track internal libraries & Ignore unused verdors files
+!source/lib/font-awesome/
+!source/lib/anime.min.js
+!source/lib/velocity/

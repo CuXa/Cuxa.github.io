@@ -1,211 +1,154 @@
-# NVS (Node Version Switcher)
+<div align="right">
+  Language:
+  🇺🇸
+  <a title="Chinese" href="docs/zh-CN/README.md">🇨🇳</a>
+  <a title="Russian" href="docs/ru/README.md">🇷🇺</a>
+</div>
 
-[![Build Status: Mac + Linux](https://travis-ci.org/jasongin/nvs.svg?branch=master)](https://travis-ci.org/jasongin/nvs) [![Build status: Windows](https://ci.appveyor.com/api/projects/status/p0mo0nobkf0ws7ie/branch/master?svg=true)](https://ci.appveyor.com/project/jasongin/nvs)
+# <div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
 
-NVS is a cross-platform utility for switching between different versions and forks of [**Node.js**](http://nodejs.org). NVS is itself written in node JavaScript.
+<p align="center">
+  «NexT» is a high quality elegant <a href="https://hexo.io">Hexo</a> theme. It is crafted from scratch with love.
+<br>
+<br>
+  <a href="https://www.npmjs.com/package/hexo-theme-next"><img src="https://img.shields.io/github/package-json/v/theme-next/hexo-theme-next?style=flat-square"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E=10.9.0-green?style=flat-square"></a>
+  <a href="https://hexo.io"><img src="https://img.shields.io/badge/hexo-%3E=4.0.0-blue?style=flat-square&logo=hexo"></a>
+  <a href="https://github.com/theme-next/hexo-theme-next/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-%20AGPL-orange?style=flat-square&logo=gnu"></a>
+<br>
+  <a href="https://bestpractices.coreinfrastructure.org/projects/2625"><img src="https://img.shields.io/cii/level/2625?style=flat-square" title="Core Infrastructure Initiative Best Practices"></a>
+  <a href="https://travis-ci.org/theme-next/hexo-theme-next?branch=master"><img src="https://img.shields.io/travis/theme-next/hexo-theme-next/master?style=flat-square&logo=travis%20ci" title="Travis CI [Linux]"></a>
+  <a href="https://app.codacy.com/manual/theme-next/hexo-theme-next/dashboard"><img src="https://img.shields.io/codacy/grade/72f7fe7609c2438a92069f448e5a341a/master?style=flat-square&logo=codacy" title="Project Grade"></a>
+  <img src="https://img.shields.io/snyk/vulnerabilities/github/theme-next/hexo-theme-next?style=flat-square" title="Vulnerabilities">
+<br>
+  <img src="https://user-images.githubusercontent.com/16272760/63487983-da41b080-c4df-11e9-951c-64883a8a5e9b.png">
+</p>
 
-This tool is obviously inspired by other node version manager tools, especially [**nvm**](https://github.com/creationix/nvm), from which it borrows a lot of ideas and some command-line syntax.
+## Live Preview
 
-## Setup
-Following are basic setup instructions. [For more details and options for setting up NVS, refer to the Setup page.](doc/SETUP.md)
+<p align="center">
+  💟 <a href="https://muse.theme-next.org">Muse</a> | 🔯 <a href="https://mist.theme-next.org">Mist</a> | ♓️ <a href="https://pisces.theme-next.org">Pisces</a> | ♊️ <a href="https://theme-next.org">Gemini</a>
+<br>
+<br>
+  More «NexT» examples <a href="https://github.com/theme-next/awesome-next#live-preview">here</a>.
+</p>
 
-### Windows
-A Windows Installer (MSI) package is available from the [NVS releases page on GitHub](https://github.com/jasongin/nvs/releases).
+## Installation
 
-You can also use [chocolatey](https://chocolatey.org) to install it:
-```
-choco install nvs
-```
+The simplest way to install is to clone the entire repository:
 
-### Mac, Linux
-Specify the installation path, clone the repo, and *source* the `install` command:
-```
-export NVS_HOME="$HOME/.nvs"
-git clone https://github.com/jasongin/nvs "$NVS_HOME"
-. "$NVS_HOME/nvs.sh" install
-```
-
-The `nvs.sh` script adds an `nvs` shell function to the environment. Afterward the tool should be invoked as just `nvs` without any path. The `install` command adds lines to your `~/.bashrc`, `~/.profile`, or `~/.zshrc` file to source `nvs.sh`, so that the `nvs` function is available in future shells.
-
-For ksh, the source `nvs.sh` needs to be in your `~/.kshrc` or wherever `$ENV` points.
-
-### CI Environments
-[NVS can be used in a CI environment](doc/CI.md) such as AppVeyor or Travis CI, to test a Node.js app or library on any version of Node.js that NVS can install.
-
-## Basic usage
-To add the latest version of node:
-```
-$ nvs add latest
-```
-Or to add the latest LTS version of node:
-```
-$ nvs add lts
-```
-Then run the `nvs use` command to add a version of node to your PATH for the current shell:
-```
-$ nvs use lts
-PATH += ~/.nvs/node/6.9.1/x64
-```
-To add it to PATH permanently, use `nvs link`:
-```
-$ nvs link lts
+```sh
+$ cd hexo
+$ git clone https://github.com/theme-next/hexo-theme-next themes/next
 ```
 
-## Command reference
-Command | Description
-------- | -----------
-`nvs help <command>`             | Get detailed help for a command
-`nvs install`                    | Initialize your profile for using NVS
-`nvs uninstall`                  | Remove NVS from profile and environment
-`nvs --version`                  | Display the NVS tool version
-`nvs add [version]`              | Download and extract a node version
-`nvs rm <version>`               | Remove a node version
-`nvs migrate <fromver> [tover]`  | Migrate global modules
-`nvs upgrade [fromver]`          | Upgrade to latest patch of major version
-`nvs use [version]`              | Use a node version in the current shell
-`nvs auto [on/off]`              | Automatically switch based on cwd
-`nvs run <ver> <js> [args...]`   | Run a script using a node version
-`nvs exec <ver> <exe> [args...]` | Run an executable using a node version
-`nvs which [version]`            | Show the path to a node version binary
-`nvs ls [filter]`                | List local node versions
-`nvs ls-remote [filter]`         | List node versions available to download
-`nvs link [version]`             | Link a version as the default
-`nvs unlink [version]`           | Remove links to a default version
-`nvs alias [name] [value]`       | Set or recall aliases for versions
-`nvs remote [name] [value]`      | Set or recall download base URIs
+Or you can see [detailed installation instructions][docs-installation-url] if you want any other variant.
 
-A version or filter consists of a complete or partial semantic version number or version label  ("lts", "latest", "Argon", etc.), optionally preceded by a remote name, optionally followed by an architecture, separated by slashes. Examples: "lts", "4.6.0", "6/x86", "node/6.7/x64".
+## Plugins
 
-[Refer to the docs](./doc) for more details about each command.
+NexT supports a large number of third-party plugins, which can be easily configured.
 
-## Interactive menus
-When invoked with no parameters, `nvs` displays an interactive menu for switching and downloading node versions.
+For example, if you want to enable `pjax` on your site, just set `pjax` to `true` in NexT config file:
 
-![nvs menu](https://github.com/jasongin/nvs/releases/download/v0.8.0/nvs-menu.gif)
-
-*NVS uses [**console-menu**](https://github.com/jasongin/console-menu), a module originally written for this project then published separately.*
-
-## VS Code support
-Visual Studio Code can use NVS to select a node version to use when launching or debugging. In `launch.json`, add a `"runtimeArgs"` attribute with an NVS version string and a `"runtimeExecutable"` attribute that refers to `nvs.cmd` (Windows) or `nvs` (Mac, Linux). (You may need to specify an absolute path such as `"${env:HOME}/.nvs/nvs"` if NVS is not in VS Code's PATH.)
-
-Example: Configure `launch.json` so VS Code uses NVS to launch node version 6.10:
-```json
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${file}",
-      "args": [ ],
-      "runtimeArgs": [ "6.10" ],
-      "windows": { "runtimeExecutable": "nvs.cmd" },
-      "osx": { "runtimeExecutable": "nvs" },
-      "linux": { "runtimeExecutable": "nvs" }
-    },
+```yml
+# Easily enable fast Ajax navigation on your website.
+# Dependencies: https://github.com/theme-next/theme-next-pjax
+pjax: true
 ```
 
-Or, remove the version string from `"runtimeArgs"` to get the version from a `.node-version` file in the project directory. For more details, see the [NVS VS Code documentation](doc/VSCODE.md) or run `nvs help vscode`.
+Then visit the «Dependencies» link to get the installation instructions of this module.
 
-## Configurable remotes
-The `nvs remote` command allows configuration of multiple named download locations. NVS manages versions from different remote locations separately, so there is no risk of version collisions. By default there is a single remote pointing to Node.js official releases:
-```
-$ nvs remote
-default  node
-node     https://nodejs.org/dist/
-```
-This makes it possible to get builds from other sources. The following command sequence adds a remote entry for nightly builds, lists nightly builds, and adds a build:
-```
-$ nvs remote add nightly https://nodejs.org/download/nightly/
-$ nvs lsr nightly/13
-nightly/13.1.1-nightly20191120c7c566023f
-...
-$ nvs add nightly/13
+### Configure CDN
+
+If you want to specify a CDN link for any plugins, you need to set / update the CDN link.
+
+For example, if you want to use `mediumzoom` and load the plugin via CDN, go to NexT config and see:
+
+```yml
+vendors:
+  # ...
+  # Some contents...
+  # ...
+  mediumzoom: # Set or update mediumzoom CDN URL.
 ```
 
-Other remote sources are supported, for example:
-```
-nvs remote add iojs https://iojs.org/dist/
-nvs remote add chakracore https://nodejs.org/download/chakracore-release/
-```
+## Update
 
-## Aliases
-An alias refers to a combination of a remote name and a semantic version. (Processor architectures are not aliased.) When setting an alias, the remote name may be omitted, in which case the alias refers to the default remote. An alias may be used in place of a version string in any of the other commands.
-```
-$ nvs alias myalias 6.7.0
-$ nvs alias
-myalias default/6.7.0
-$ nvs run myalias --version
-v6.7.0
-$ nvs which myalias
-~/.nvs/node/6.7.0/x64/bin/node
-$ nvs which myalias/32
-~/.nvs/node/6.7.0/x86/bin/node
-```
-[An alias may also refer to a local directory](doc/ALIAS.md#aliasing-directories), enabling NVS to switch to a local private build of node.
+NexT releases new versions every month. You can update to latest master branch by the following command:
 
-## Automatic switching per directory
-In either Bash or PowerShell, NVS can automatically switch the node version in the current shell as you change directories. This function is disabled by default; to enable it run `nvs auto on`. Afterward, whenever you `cd` or `pushd` under a directory containing a `.node-version` or an [`.nvmrc`](https://github.com/nvm-sh/nvm#nvmrc) file then NVS will automatically switch the node version accordingly, downloading a new version if necessary. When you `cd` out to a directory with no `.node-version` or `.nvmrc` file anywhere above it, then the default (linked) version is restored, if any.
-```
-~$ nvs link 6.9.1
-~/.nvs/default -> ~/.nvs/node/6.9.1/x64
-~$ nvs use
-PATH += ~/.nvs/default/bin
-~$ nvs auto on
-~$ cd myproject
-PATH -= ~/.nvs/default/bin
-PATH += ~/.nvs/node/4.6.1/x64/bin
-~/myproject$ cd ..
-PATH -= ~/.nvs/node/4.6.1/x64/bin
-PATH += ~/.nvs/default/bin
-```
-*This feature is not available in Windows Command Prompt. Use PowerShell instead.*
-
-## Manual switching using `.node-version`
-If your shell isn't compatible with automatic switching or you'd prefer to switch manually but still take advantage of any `.node-version` or `.nvmrc` files, you can run `nvs use` with the version `auto` or just run `nvs auto`.
-
-```
-$ nvs use auto
+```sh
+$ cd themes/next
+$ git pull
 ```
 
-is equivalent to
+And if you see any error message during update (something like **«Commit your changes or stash them before you can merge»**), recommended to learn [Hexo data files][docs-data-files-url] feature.\
+However, you can bypass update errors by using the `Commit`, `Stash` or `Reset` commands for local changes. See [here](https://stackoverflow.com/a/15745424/5861495) how to do it.
 
-```
-$ nvs auto
-```
+**If you want to update from v5.1.x to the latest version, read [this][docs-update-5-1-x-url].**
 
-# How it works
+## Feedback
 
-## Bootstrapping node
-NVS uses a small amount of platform-specific shell code that bootstraps the tool by automatically downloading a private copy of node. The bootstrap code is just a few dozen lines each of Windows command script, Windows powershell script, and POSIX shell script. Besides bootstrapping, the shell scripts are also used to export PATH changes to the calling shell (which a separate node process cannot do). But all the code for querying available versions, downloading and installing node and matching npm, switching versions/architectures/engines, uninstalling, parsing and updating PATH, and more can be written in JavaScript, and mostly in a cross-platform way.
+* Visit the [Awesome NexT][awesome-next-url] list to share plugins and tutorials with other users.
+* Join our [Telegram][t-chat-url] / [Gitter][gitter-url] / [Riot][riot-url] chats.
+* [Add or improve translation][i18n-url] in few seconds.
+* Report a bug in [GitHub Issues][issues-bug-url].
+* Request a new feature on [GitHub][issues-feat-url].
+* Vote for [popular feature requests][feat-req-vote-url].
 
-## Version switching
-NVS downloads node builds under the directory specified by the `NVS_HOME` environment variable, or under the NVS tool directory if `NVS_HOME` is not set. Each build goes in a subdirectory based on the remote name, semantic version, and architecture, for example `node/6.7.0/x64`.
+## Contributing
 
-When you `nvs use` a version, the `PATH` of the current shell is updated to include that version's `bin` directory.
+We welcome you to join the development of NexT. Please see [contributing document][contributing-document-url]. 🤗
 
-## Global modules
-When using `npm install -g` or `npm link` with NVS-installed node, global modules are installed or linked into a version-specific directory. (NVS clears any `NPM_CONFIG_PREFIX` environment variable that may have been set.) This means when NVS switches versions it is also switching the set of available global modules. The `nvs migrate` command can migrate those global modules from one node version to another.
+Also, we welcome Issue or PR to our [official-plugins][official-plugins-url].
 
-## Symbolic links
-The `nvs link` command creates a symbolic directory link at `$NVS_HOME/default` that points to the specified version (or the current version from `PATH` at the time of the command). This can be useful when there is a need to configure a fixed path elsewhere.
+## Contributors
 
-On non-Windows platforms, a new shell that sources the `nvs.sh` script also sets `PATH` to include the default version, if a link is present. On Windows, the `PATH` environment variable is updated in the user profile, so that new shells will use the default version.
+[![][contributors-image]][contributors-url]
 
-The `nvs ls` command lists all local node versions, marks the version currently in the path with a `>`, and marks the default (linked) version, if any, with a `#`. These may be the same or different. For example:
-```
-  node/4.5.0/x64
- #node/4.6.0/x64
- >node/6.7.0/x64
-```
+## Thanks
 
-## System linking
-If `$NVS_HOME` is under a system path such as `/usr/local` or `%ProgramFiles%`, then the `nvs link` command additionally links into well-known Node.js system locations. (This is only allowed if there is not already a system-installed node.)
+<p align="center">
+  «NexT» send special thanks to these great services that sponsor our core infrastructure:
+<br>
+<br>
+  <a href="https://github.com"><img align="center" width="100" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Logo.png"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://www.netlify.com"><img align="center" width="150" src="https://cdn.netlify.com/15ecf59b59c9d04b88097c6b5d2c7e8a7d1302d0/1b6d6/img/press/logos/full-logo-light.svg"></a>
+<br>
+<br>
+  <sub>GitHub allows us to host the Git repository, Netlify allows us to distribute the documentation.</sub>
+<br>
+<br>
+  <a href="https://crowdin.com"><img align="center" width="180" src="https://support.crowdin.com/assets/logos/crowdin-logo1-small.png"></a>
+<br>
+<br>
+  <sub>Crowdin allows us to translate conveniently the documentation.</sub>
+<br>
+<br>
+  <a href="https://codacy.com"><img align="center" width="155" src="https://user-images.githubusercontent.com/16944225/55026017-623f8f00-5002-11e9-88bf-0d6a5884c6c2.png"></a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://travis-ci.com"><img align="center" width="140" src="https://raw.githubusercontent.com/travis-ci/travis-web/master/public/images/logos/TravisCI-Full-Color.png"></a>
+<br>
+<br>
+  <sub>Codacy allows us to monitor code quality, Travis CI allows us to run the test suite.</sub>
+</p>
 
-* On non-Windows platforms, symbolic links are created in `/usr/local/bin` for `node`, `npm`, and any globally-installed node modules that have executables. Note after installing or uninstalling global modules that include executables it may be necessary to run `nvs link` again to update the global links. Using NVS to link a different version of node (with different global modules) updates all the links accordingly.
+[docs-installation-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/INSTALLATION.md
+[docs-data-files-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/DATA-FILES.md
+[docs-update-5-1-x-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/UPDATE-FROM-5.1.X.md
 
-* On Windows, a symbolic directory link is created at `%ProgramFiles%\Nodejs`, and that directory is added to the system `PATH`.
+[t-news-url]: https://t.me/theme_next_news
+[t-chat-url]: https://t.me/theme_next
+[gitter-url]: https://gitter.im/theme-next
+[riot-url]: https://riot.im/app/#/room/#theme-next:matrix.org
+[i18n-url]: https://i18n.theme-next.org
 
-This system linking functionality is skipped when `$NVS_HOME` points to a non-system directory, because it would be wrong to create symlinks in system directories to user files.
+[awesome-next-url]: https://github.com/theme-next/awesome-next
+[issues-bug-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
+[issues-feat-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Feature+Request&template=feature-request.md
+[feat-req-vote-url]: https://github.com/theme-next/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
 
-## Dependencies
-NVS has no external dependencies beyond the private copy of node that it automatically downloads. Runtime JS package dependencies are minimal and are checked in to the repo to avoid the need for an `npm install` at bootstrapping time.
+[contributing-document-url]: https://github.com/theme-next/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
+[official-plugins-url]: https://github.com/theme-next
+[contributors-image]: https://opencollective.com/theme-next/contributors.svg?width=890
+[contributors-url]: https://github.com/theme-next/hexo-theme-next/graphs/contributors
