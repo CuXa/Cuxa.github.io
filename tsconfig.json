@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"noEmit": true,
+		"allowJs": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"types": ["node"],
+		"target":"es2017"
+	},
+	"include": [
+		"./lib/",
+		"./deps/**/*"
+	]
+}

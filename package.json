@@ -1,19 +1,100 @@
 {
-  "name": "hexo-theme-mellow",
-  "version": "1.4.4",
-  "description": "Material Design theme for Hexo.",
-  "keywords": [
-    "hexo",
-    "theme",
-    "material design"
-  ],
-  "author": {
-    "name": "Michael.Lu",
-    "email": "277133779@qq.com"
-  },
-  "license": "MIT",
-  "repository": {
-    "url": "git+https://github.com/codefine/hexo-theme-mellow.git",
-    "type": "git"
-  }
+	"name": "nvs",
+	"version": "1.6.0",
+	"description": "Node Version Switcher",
+	"main": "lib/index.js",
+	"scripts": {
+		"test": "ava --verbose --serial test/modules/* test/cli/*",
+		"test-cli": "ava --verbose --serial test/cli/*",
+		"test-modules": "ava --verbose --serial test/modules/*",
+		"coverage": "nyc --all ava --serial test/modules/*",
+		"lint": "eslint lib test",
+		"ts-check": "tsc"
+	},
+	"author": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jasongin/nvs"
+	},
+	"devDependencies": {
+		"@types/node": "^13.7.7",
+		"ava": "^3.10.1",
+		"eslint": "^5.16.0",
+		"eslint-config-standard": "^12.0.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-node": "^7.0.1",
+		"eslint-plugin-promise": "^4.0.1",
+		"eslint-plugin-standard": "^4.0.0",
+		"nyc": "^15.1.0",
+		"rewire": "^2.5.2",
+		"typescript": "^3.7.2"
+	},
+	"ava": {
+		"files": [
+			"test/**/*Tests.js"
+		],
+		"timeout": "10m"
+	},
+	"nyc": {
+		"include": [
+			"lib/**"
+		],
+		"reporter": [
+			"text",
+			"html"
+		]
+	},
+	"eslintConfig": {
+		"env": {
+			"node": true,
+			"es6": true
+		},
+		"parserOptions": {
+			"ecmaVersion": 2017,
+			"sourceType": "script"
+		},
+		"extends": "standard",
+		"plugins": [
+			"standard",
+			"promise"
+		],
+		"rules": {
+			"no-tabs": "off",
+			"no-multi-spaces": [
+				"error",
+				{
+					"ignoreEOLComments": true
+				}
+			],
+			"indent": [
+				"error",
+				"tab",
+				{
+					"SwitchCase": 1
+				}
+			],
+			"semi": [
+				"error",
+				"always"
+			],
+			"space-before-function-paren": [
+				"error",
+				{
+					"anonymous": "always",
+					"named": "never"
+				}
+			],
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			],
+			"strict": [
+				"error",
+				"global"
+			],
+			"no-var": "error"
+		}
+	},
+	"dependencies": {}
 }
