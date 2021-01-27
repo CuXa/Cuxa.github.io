@@ -19,7 +19,7 @@ less:
 favicon: /img/favicon.ico
 
 # 头部背景
-# 如/img/banner.jpg 或 https://i.loli.net/2017/12/12/5a2fd18a74471.jpg
+# 如/img/avatar.jpg 或 https://i.loli.net/2017/12/12/5a2fd18a74471.jpg
 headerBg: /img/banner.jpg
 
 # 动态定义title
@@ -32,20 +32,6 @@ headerBg: /img/banner.jpg
 ## https://support.google.com/webmasters/answer/139066
 ## 假设配置为 canonical: http://www.lujingtao.com，那么从搜索引擎中 www.lujingtao.com 进入会重定向到 lujingtao.com
 canonical: false
-
-# DaoVoice 聊天室
-daovoice:
-  app_id: 
-
-# 主页文章排序方式
-## true 按照文章更新时间排序
-## false 按照文章创建时间排序
-articleSort: false
-
-# 站浏览数统计
-visit_counter: 
-  site_uv: true # 访客数量
-  site_pv: true # 浏览次数
 
 ##############################################################################################################################
 
@@ -60,7 +46,7 @@ avatar: /img/avatar.jpg
 avatar_link: / #默认为主页
 
 # 头像区域背景图
-brand: /img/brand.jpg
+brand: /img/brand.png
 
 # 电子邮件
 email: 277133779@qq.com
@@ -112,9 +98,6 @@ menu:
     #url: http://www.weibo.com/codefine
     #target: _blank
 
-# 进入文章时自动隐藏
-auto_hide: false
-
 ##############################################################################################################################
 
 #####################
@@ -152,7 +135,6 @@ defaultthumb: true
 ## excerpt_render为false时可进行手动截断。方法为在文章的markdown文件中加入<!--more-->，其之前的内容视为摘要部分。
 excerpt_render: false   #自动截断
 excerpt_length: 200     #截断长度
-excerpt_link: more      #更多按钮内容
 
 # 是否显示文章最后更新时间
 ## 位于文章底部的copyright
@@ -196,9 +178,6 @@ toc:
 ####   页脚配置    ###
 #####################
 
-# 固定页脚
-footer_fixation: false
-
 # 友情链接
 blogroll:
   item1:
@@ -238,18 +217,6 @@ local_search: true
 
 # 百度统计
 baidu_tongji: #appid
-
-# gitment评论系统
-## https://github.com/imsun/gitment
-gitment:
-  enable: false
-  lazy: true #是否开启初始化隐藏评论
-  owner: codefine #github账号
-  repo: gitment #留言仓库
-  oauth: 
-    client_id: #client_id
-    client_secret: #client_id
-  perPage: 10 #分页
 
 # valine评论系统
 ## https://valine.js.org/
