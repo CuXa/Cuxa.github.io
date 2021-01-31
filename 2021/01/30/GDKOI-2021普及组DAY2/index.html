@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="T1： 初中OJ2473比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数对拍真的很重要，所以一定要对拍！！！！！！！！！！T2： 初中OJ2474想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深T3： 初中OJ2475想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，">
+<meta name="description" content="T1： 初中OJ2473比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数对拍真的很重要，所以一定要对拍！！！！！！！！！！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GDKOI 2021普及组DAY2">
 <meta property="og:url" content="http://example.com/2021/01/30/GDKOI-2021%E6%99%AE%E5%8F%8A%E7%BB%84DAY2/index.html">
 <meta property="og:site_name" content="CuXa&#39;s Blog">
-<meta property="og:description" content="T1： 初中OJ2473比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数对拍真的很重要，所以一定要对拍！！！！！！！！！！T2： 初中OJ2474想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深T3： 初中OJ2475想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，">
+<meta property="og:description" content="T1： 初中OJ2473比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数对拍真的很重要，所以一定要对拍！！！！！！！！！！">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-30T13:43:19.000Z">
-<meta property="article:modified_time" content="2021-01-31T06:31:45.537Z">
+<meta property="article:modified_time" content="2021-01-31T07:34:40.624Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="tags">
 <meta name="twitter:card" content="summary">
@@ -250,7 +250,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">عُدل في</span>
-        <time title="更新于：2021-01-31 14:31:45" itemprop="dateModified" datetime="2021-01-31T14:31:45+08:00">2021-01-31</time>
+        <time title="更新于：2021-01-31 15:34:40" itemprop="dateModified" datetime="2021-01-31T15:34:40+08:00">2021-01-31</time>
       </span>
 
   
@@ -270,7 +270,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>T1： 初中OJ2473<br>比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数<br>对拍真的很重要，所以一定要对拍！！！！！！！！！！<br>T2： 初中OJ2474<br>想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深<br>T3： 初中OJ2475<br>想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，到2^j出来或不出来的费用，然后这就很麻烦，所以就没有继续推，正解是找进入地狱门的最佳方位，方向是对的，但是方法找错<br>T4： 初中OJ2476<br>比赛连爆搜都没想出来，应该是二分图匹配，没有分析好数据，忘记了可以对半分，最后再把剩下的0/1矩阵二分图匹配一下就好了</p>
+        <p>T1： 初中OJ2473<br>比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数<br>对拍真的很重要，所以一定要对拍！！！！！！！！！！</p>
+<a id="more"></a>
+<p>T2： 初中OJ2474<br>想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深<br>T3： 初中OJ2475<br>想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，到2^j出来或不出来的费用，然后这就很麻烦，所以就没有继续推，正解是找进入地狱门的最佳方位，方向是对的，但是方法找错<br>T4： 初中OJ2476<br>比赛连爆搜都没想出来，应该是二分图匹配，没有分析好数据，忘记了可以对半分，最后再把剩下的0/1矩阵二分图匹配一下就好了</p>
 <p>比赛总结：Day2的题目比Day1的题目上了不是一个等级，还是太过于弱，思想比较浅，没有想更深层次的东西，没有找到用这个算法的方法，导致T2和T3想得过于复杂，没有发挥这些的作用，思维能力还是太弱了，平时太怠惰了，没有练多少题，以后要多刷题了，再怠惰下去就蛋了。（还有T1的细节，细节方面真的太不好了，太过于粗心了）</p>
 
     </div>
