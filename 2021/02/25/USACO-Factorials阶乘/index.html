@@ -31,7 +31,7 @@
 <meta property="og:description" content="题目大意   给定一个数n，求n！的最后面的非零位">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-02-25T13:59:04.000Z">
-<meta property="article:modified_time" content="2021-02-26T12:00:01.738Z">
+<meta property="article:modified_time" content="2021-02-26T12:19:16.937Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="数学">
 <meta name="twitter:card" content="summary">
@@ -99,7 +99,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="تشغيل شريط التصفح" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -284,8 +284,8 @@
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">عُدل في</span>
-        <time title="更新于：2021-02-26 20:00:01" itemprop="dateModified" datetime="2021-02-26T20:00:01+08:00">2021-02-26</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="更新于：2021-02-26 20:19:16" itemprop="dateModified" datetime="2021-02-26T20:19:16+08:00">2021-02-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -298,11 +298,11 @@
     </span>
 
   
-    <span id="/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/" class="post-meta-item leancloud_visitors" data-flag-title="USACO Factorials阶乘" title="مشاهدات">
+    <span id="/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/" class="post-meta-item leancloud_visitors" data-flag-title="USACO Factorials阶乘" title="Views">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">مشاهدات：</span>
+      <span class="post-meta-item-text">Views：</span>
       <span class="leancloud-visitors-count"></span>
     </span>
 </div>
@@ -326,8 +326,42 @@
 <p>  1 * 2 * 3 * 4 * 5 * 6 * 7 = 5040 </p>
 <p>  最后面的非零位是4</p>
 <p>  输出4</p>
+<p><strong>数据范围</strong></p>
+<p>  n&lt;=4,200</p>
 <p><strong>题解</strong></p>
-<p>  水题，和</p>
+<p>  经典水题，与GDKOI的一题很像，也是求最后面的非零位，做法也差不多。先把n！看成1 * 2 * 3 * …* (n-1) * n然后分解质因数，并且把1~n每个质因数的个位数的个数存起来，再将2与5抵消，判断是否有剩5，如果有，那么直接输出5，没有就从2到7将剩余的乘起来，变为2^n[2] * 3^n[3]* 5^n[5] * 7^n[7] ,乘的时候取个位就好了，最后再输出，但其实最后一步可以改进，用规律来算，但是范围太小，不值得。</p>
+<p><strong>AC程序</strong></p>
+<pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int
+ n,p[100001],k,ans=1;
+int main()
+&#123;
+    scanf(&quot;%d&quot;,&amp;n);
+    for(int i=2;i&lt;=n;i++)
+    &#123;
+        k=i;
+        int j=2;
+        while(k!=1)
+        &#123;
+            while(k%j==0) p[j%10]++,k/=j;
+            j++;
+        &#125;
+    &#125;
+    int o=p[5];
+    p[5]=p[5]-min(o,p[2]),p[2]=p[2]-min(o,p[2]);
+    if(p[5]&gt;0)
+        printf(&quot;5&quot;);
+    else
+        for(int i=2;i&lt;=n;i++)
+            if(p[i]&gt;0)
+                for(int j=1;j&lt;=p[i];j++)
+                    ans=ans*i%10;
+    printf(&quot;%d&quot;,ans);
+&#125; 
+</code></pre>
 
     </div>
 
