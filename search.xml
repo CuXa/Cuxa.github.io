@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>GDKOI 2021提高组DAY1</title>
-    <url>/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY1/</url>
-    <content><![CDATA[<p>T1: 初中OJ2481<br>贪心，题目描述一大堆符号，我是蒟蒻，所以我忘记了这些符号的意思了，然后就看下一题去了了，听说有人rand然后80，tql，我的贪心还是太垃圾了，数学爆炸。</p>
+    <title>GDKOI 2021提高组DAY2</title>
+    <url>/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY2/</url>
+    <content><![CDATA[<p>T1: 高中OJ6965<br>期望DP,比赛的时候推了很久都没有推出来,推DP的能力还是太弱了,还是得多推DP</p>
 <a id="more"></a>
-<p>T2: 初中OJ2482<br>打了个暴力20,正解是单调栈+二分,然后我还是不会,还是太菜了<br>T3: 初中OJ2483<br>马拉车,我不会,打了个暴力水分,算法学得还是太少了<br>T4: 初中OJ2484<br>#$<em>&amp;$^&amp;</em>$^&amp;<em>^^%^^</em>$,我不会</p>
-<p>总结:菜菜菜,要学多点算法了,数学还是太弱了,要多打一些贪心的题目了，要学多一点处理字符的算法，多了解点符号的意思，不要再看不懂题目了</p>
+<p>T2: 高中OJ6966<br>模拟+线段树优化,比赛打了个类似并查集的东西然后炸0,线段树还是我没有想到的,要多刷一下线段树的题目了<br>T3: 高中OJ6967<br>又是DP,然后就挂了,暴力都懒得打,还是DP不太行,字符串也要提高<br>T4: 高中OJ6968<br>打了暴力,水了30,正解还不会</p>
+<p>总结:多推DP,多刷难题,多学字符串操作</p>
 ]]></content>
       <categories>
         <category>GDKOI</category>
@@ -16,12 +16,12 @@
       </tags>
   </entry>
   <entry>
-    <title>GDKOI 2021提高组DAY2</title>
-    <url>/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY2/</url>
-    <content><![CDATA[<p>T1: 高中OJ6965<br>期望DP,比赛的时候推了很久都没有推出来,推DP的能力还是太弱了,还是得多推DP</p>
+    <title>GDKOI 2021提高组DAY1</title>
+    <url>/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY1/</url>
+    <content><![CDATA[<p>T1: 初中OJ2481<br>贪心，题目描述一大堆符号，我是蒟蒻，所以我忘记了这些符号的意思了，然后就看下一题去了了，听说有人rand然后80，tql，我的贪心还是太垃圾了，数学爆炸。</p>
 <a id="more"></a>
-<p>T2: 高中OJ6966<br>模拟+线段树优化,比赛打了个类似并查集的东西然后炸0,线段树还是我没有想到的,要多刷一下线段树的题目了<br>T3: 高中OJ6967<br>又是DP,然后就挂了,暴力都懒得打,还是DP不太行,字符串也要提高<br>T4: 高中OJ6968<br>打了暴力,水了30,正解还不会</p>
-<p>总结:多推DP,多刷难题,多学字符串操作</p>
+<p>T2: 初中OJ2482<br>打了个暴力20,正解是单调栈+二分,然后我还是不会,还是太菜了<br>T3: 初中OJ2483<br>马拉车,我不会,打了个暴力水分,算法学得还是太少了<br>T4: 初中OJ2484<br>#$<em>&amp;$^&amp;</em>$^&amp;<em>^^%^^</em>$,我不会</p>
+<p>总结:菜菜菜,要学多点算法了,数学还是太弱了,要多打一些贪心的题目了，要学多一点处理字符的算法，多了解点符号的意思，不要再看不懂题目了</p>
 ]]></content>
       <categories>
         <category>GDKOI</category>
@@ -56,7 +56,7 @@
 <p>T3:初中OJ 2470 配对</p>
 <p>想到了正解,贪心水题,没有判断边界,丢了20分,还是细节错误,对拍还是很重要</p>
 <p>T4:初中OJ 2471 旅行</p>
-<p>最小生成树+离线操作,想到了了最小生成树,但没有想到100分的做法,然后打了个暴力,连最小生成树都没有用到,然后少了30,还是没有相信自己的思路<br>比赛总结:第一次GDKOI,打炸了,细节分丢了95+20,原本应该是有260,细节要打好,对拍不能少,要对拍对拍对拍对拍!!<br>$$<br>sum(a,b)<br>$$</p>
+<p>最小生成树+离线操作,想到了了最小生成树,但没有想到100分的做法,然后打了个暴力,连最小生成树都没有用到,然后少了30,还是没有相信自己的思路<br>比赛总结:第一次GDKOI,打炸了,细节分丢了95+20,原本应该是有260,细节要打好,对拍不能少,要对拍对拍对拍对拍!!</p>
 ]]></content>
       <categories>
         <category>GDKOI</category>
@@ -93,6 +93,31 @@
       </categories>
       <tags>
         <tag>总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>USACO Factorials阶乘</title>
+    <url>/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/</url>
+    <content><![CDATA[<p><strong>题目大意</strong></p>
+<p>  给定一个数n，求n！的最后面的非零位</p>
+<a id="more"></a>
+
+<p><strong>样例输入</strong></p>
+<p>  7</p>
+<p><strong>样例输出</strong></p>
+<p>  4</p>
+<p><strong>样例解释</strong></p>
+<p>  1 * 2 * 3 * 4 * 5 * 6 * 7 = 5040 </p>
+<p>  最后面的非零位是4</p>
+<p>  输出4</p>
+<p><strong>题解</strong></p>
+<p>  水题，和</p>
+]]></content>
+      <categories>
+        <category>USACO</category>
+      </categories>
+      <tags>
+        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
