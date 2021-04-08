@@ -24,21 +24,30 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="T1: 初中OJ2481贪心，题目描述一大堆符号，我是蒟蒻，所以我忘记了这些符号的意思了，然后就看下一题去了了，听说有人rand然后80，tql，我的贪心还是太垃圾了，数学爆炸。">
+<meta name="description" content="题目原文DJL为了避免成为一只咸鱼，来找srwudi学习压代码的技巧。Srwudi的家是一幢h层的摩天大楼。由于前来学习的蒟蒻越来越多，srwudi改造了一个跳楼机，使得访客可以更方便的上楼。经过改造，srwudi的跳楼机可以采用以下四种方式移动：1、向上移动x层；2、向上移动y层；3、向上移动z层；4、回到第一层。一个月黑风高的大中午，DJL来到了srwudi的家，现在他在srwudi家的第一层">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GDKOI 2021提高组DAY1">
-<meta property="og:url" content="http://example.com/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY1/index.html">
+<meta property="og:title" content="GMOJ 4722.跳楼机">
+<meta property="og:url" content="http://example.com/2021/03/18/GMOJ-4722-%E8%B7%B3%E6%A5%BC%E6%9C%BA/index.html">
 <meta property="og:site_name" content="CuXa&#39;s Blog">
-<meta property="og:description" content="T1: 初中OJ2481贪心，题目描述一大堆符号，我是蒟蒻，所以我忘记了这些符号的意思了，然后就看下一题去了了，听说有人rand然后80，tql，我的贪心还是太垃圾了，数学爆炸。">
+<meta property="og:description" content="题目原文DJL为了避免成为一只咸鱼，来找srwudi学习压代码的技巧。Srwudi的家是一幢h层的摩天大楼。由于前来学习的蒟蒻越来越多，srwudi改造了一个跳楼机，使得访客可以更方便的上楼。经过改造，srwudi的跳楼机可以采用以下四种方式移动：1、向上移动x层；2、向上移动y层；3、向上移动z层；4、回到第一层。一个月黑风高的大中午，DJL来到了srwudi的家，现在他在srwudi家的第一层">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-01-31T08:40:56.000Z">
-<meta property="article:modified_time" content="2021-02-26T11:48:49.477Z">
+<meta property="og:image" content="https://latex.codecogs.com/svg.image?
+\sum_{i=0}^{x-1}\lfloor\frac{h-a[i]}{x}\rfloor+1
+">
+<meta property="og:image" content="https://latex.codecogs.com/svg.image?\\a[(i+y)\bmod x]=a[i]+y\\
+a[(i+z)\bmod x]=a[i]+z">
+<meta property="article:published_time" content="2021-03-18T01:13:37.000Z">
+<meta property="article:modified_time" content="2021-04-08T12:37:58.451Z">
 <meta property="article:author" content="CuXa">
-<meta property="article:tag" content="总结">
+<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="同余最短路">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://latex.codecogs.com/svg.image?
+\sum_{i=0}^{x-1}\lfloor\frac{h-a[i]}{x}\rfloor+1
+">
 
 
-<link rel="canonical" href="http://example.com/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY1/">
+<link rel="canonical" href="http://example.com/2021/03/18/GMOJ-4722-%E8%B7%B3%E6%A5%BC%E6%9C%BA/">
 
 
 <script class="page-configurations">
@@ -50,7 +59,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>GDKOI 2021提高组DAY1 | CuXa's Blog</title>
+<title>GMOJ 4722.跳楼机 | CuXa's Blog</title>
   
 
 
@@ -178,7 +187,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -191,6 +200,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%8E%9F%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">题目原文</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%80%E5%8C%96%E7%89%88"><span class="nav-number">1.1.</span> <span class="nav-text">简化版</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">1.2.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">1.3.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%A7%A3%E9%87%8A"><span class="nav-number">1.4.</span> <span class="nav-text">样例解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%8C%83%E5%9B%B4"><span class="nav-number">1.5.</span> <span class="nav-text">数据范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-number">1.6.</span> <span class="nav-text">题解</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#40"><span class="nav-number">1.6.1.</span> <span class="nav-text">40%</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#100"><span class="nav-number">1.6.2.</span> <span class="nav-text">100%</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%951-%E5%90%8C%E4%BD%99%E6%9C%80%E7%9F%AD%E8%B7%AF"><span class="nav-number">1.6.3.</span> <span class="nav-text">方法1:同余最短路</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">程序</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%96%B9%E6%B3%952-BFS"><span class="nav-number">1.6.4.</span> <span class="nav-text">方法2:BFS</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -256,7 +266,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/18/GMOJ-4722-%E8%B7%B3%E6%A5%BC%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -269,7 +279,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          GDKOI 2021提高组DAY1
+          GMOJ 4722.跳楼机
         </h1>
 
         <div class="post-meta-container">
@@ -280,7 +290,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建于：2021-01-31 16:40:56" itemprop="dateCreated datePublished" datetime="2021-01-31T16:40:56+08:00">2021-01-31</time>
+      <time title="创建于：2021-03-18 09:13:37" itemprop="dateCreated datePublished" datetime="2021-03-18T09:13:37+08:00">2021-03-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -288,7 +298,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/GDKOI/" itemprop="url" rel="index"><span itemprop="name">GDKOI</span></a>
+          <a href="/categories/%E6%A8%A1%E6%8B%9F%E8%B5%9B%E9%A2%98%E7%9B%AE/" itemprop="url" rel="index"><span itemprop="name">模拟赛题目</span></a>
         </span>
     </span>
 
@@ -302,10 +312,138 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>T1: 初中OJ2481<br>贪心，题目描述一大堆符号，我是蒟蒻，所以我忘记了这些符号的意思了，然后就看下一题去了了，听说有人rand然后80，tql，我的贪心还是太垃圾了，数学爆炸。</p>
+        <h3 id="题目原文"><a href="#题目原文" class="headerlink" title="题目原文"></a>题目原文</h3><p>DJL为了避免成为一只咸鱼，来找srwudi学习压代码的技巧。<br>Srwudi的家是一幢h层的摩天大楼。由于前来学习的蒟蒻越来越多，srwudi改造了一个跳楼机，使得访客可以更方便的上楼。<br>经过改造，srwudi的跳楼机可以采用以下四种方式移动：<br>1、向上移动x层；<br>2、向上移动y层；<br>3、向上移动z层；<br>4、回到第一层。<br>一个月黑风高的大中午，DJL来到了srwudi的家，现在他在srwudi家的第一层，碰巧跳楼机也在第一层。DJL想知道，他可以乘坐跳楼机前往的楼层数。</p>
 <a id="more"></a>
-<p>T2: 初中OJ2482<br>打了个暴力20,正解是单调栈+二分,然后我还是不会,还是太菜了<br>T3: 初中OJ2483<br>马拉车,我不会,打了个暴力水分,算法学得还是太少了<br>T4: 初中OJ2484<br>#$<em>&amp;$^&amp;</em>$^&amp;<em>^^%^^</em>$,我不会</p>
-<p>总结:菜菜菜,要学多点算法了,数学还是太弱了,要多打一些贪心的题目了，要学多一点处理字符的算法，多了解点符号的意思，不要再看不懂题目了</p>
+
+<h4 id="简化版"><a href="#简化版" class="headerlink" title="简化版"></a>简化版</h4><p>输入h,x,y,z。</p>
+<p>现在有三种操作：</p>
+<p>1.向前走x格。</p>
+<p>2.向前走y格。</p>
+<p>3.向前走z格。</p>
+<p>而你现在在第一格。</p>
+<p>现在问：他可以到达的并且小于等于h的格数。</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code class="html">15
+4 7 9
+</code></pre>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code class="html">9
+</code></pre>
+<h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><pre><code class="html">可以到达的：1，5=1+4，8=1+7，9=1+4+4,10=1+9,12=1+7+4,13=1+4+4+4,14=1+4+9,15=1+7+7
+</code></pre>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><pre><code class="html">20%的数据，1≤h, x, y, z≤100；
+40%的数据，1≤h, x, y, z≤10^5；
+100%的数据，1≤h≤10^18，1≤x, y, z≤10^5
+</code></pre>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><h5 id="40"><a href="#40" class="headerlink" title="40%"></a>40%</h5><p>直接完全背包莽过去</p>
+<p>时间复杂度O（h）</p>
+<p>空间复杂度O（h）</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int
+ n,a,b,c,ans;
+bool
+ dp[50000001];
+int main()
+&#123;
+    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;a,&amp;b,&amp;c);
+    dp[1]=1;
+    for(int i=1;i&lt;=n;i++)
+        if(dp[i]) dp[i+a]=dp[i+b]=dp[i+c]=1,ans++;
+    printf(&quot;%d&quot;,ans);
+&#125;
+</code></pre>
+<h5 id="100"><a href="#100" class="headerlink" title="100%"></a>100%</h5><p>设a[i]为b%x==i时b的最小值</p>
+<p>b的定义为只用y和z能走到的格子</p>
+<p>那么答案就是:</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+\sum_{i=0}^{x-1}\lfloor\frac{h-a[i]}{x}\rfloor+1
+" /></p>
+<p>问题就转换为如何求a[i]的值</p>
+<p>很容易就可以得到两个转移</p>
+<p><img src="https://latex.codecogs.com/svg.image?\\a[(i+y)\bmod x]=a[i]+y\\
+a[(i+z)\bmod x]=a[i]+z" /></p>
+<p>那么现在就有两种方法了</p>
+<h5 id="方法1-同余最短路"><a href="#方法1-同余最短路" class="headerlink" title="方法1:同余最短路"></a>方法1:同余最短路</h5><p>将上面的公式看作为</p>
+<p>i到(i+y) mod x的边权值为a[i]+y</p>
+<p>i到(i+z) mod x的边权值为a[i]+z</p>
+<p>然后连边</p>
+<p>那么问题就转换成最短路问题</p>
+<p>spfa就解决了</p>
+<h6 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h6><pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+long long
+ n,m,x,y,z,d[10000001],bian[1000001],tot=1,q[1000001],hand,tail=1,ans;
+bool
+ a[10000001];
+struct s
+&#123;
+    int end,next,v;
+&#125;l[1000001];
+void add(int x,int y,int v)
+&#123;
+    l[tot].end=y;
+    l[tot].next=bian[x];
+    l[tot].v=v;
+    bian[x]=tot++;
+&#125;
+int main()
+&#123;
+    memset(d,100,sizeof(d));
+    scanf(&quot;%lld%lld%lld%lld&quot;,&amp;n,&amp;x,&amp;y,&amp;z);
+    if(x&gt;y) swap(x,y);
+    if(y&gt;z) swap(y,z);
+    if(x&gt;z) swap(x,z);
+    if(x==1)
+    &#123;
+        printf(&quot;%lld&quot;,n);
+        return 0;
+    &#125;
+    for(int i=0;i&lt;x;i++)
+    &#123;
+        add(i,(i+y)%x,y);
+        add(i,(i+z)%x,z);
+    &#125;
+    q[1]=1;
+    d[1]=1;
+    while(hand&lt;tail)
+    &#123;
+        int o=q[++hand];
+        a[o]=0;
+        for(int i=bian[o];i!=0;i=l[i].next)
+        &#123;
+            if(d[l[i].end]&gt;d[o]+l[i].v)
+            &#123;
+                d[l[i].end]=d[o]+l[i].v;
+                if(a[l[i].end]==0)
+                &#123;
+                    q[++tail]=l[i].end;
+                    a[l[i].end]=1;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+      for(int i=0;i&lt;x;i++)
+    &#123;
+        if(n&gt;=d[i])
+        ans=ans+(n-d[i])/x+1;
+    &#125;
+    printf(&quot;%lld&quot;,ans);
+&#125;
+</code></pre>
+<p>时间复杂度约o(x)</p>
+<p>常数略大，约100ms</p>
+<h5 id="方法2-BFS"><a href="#方法2-BFS" class="headerlink" title="方法2:BFS"></a>方法2:BFS</h5><p>由i拓展到(i+y) mod x和(i+z) mod x</p>
+<p>条件为+y、+z是否小于原来的值</p>
+<p>如果是则赋值</p>
+<p>判断是否在队列里</p>
+<p>如果没有就放进去</p>
+<p>代码较短，所以不贴出来了</p>
+<p>时间复杂度约x)</p>
+<p>常数较小，约30~50ms</p>
+<p>(这得看你的代码常数处理丑不丑陋了)</p>
 
     </div>
 
@@ -315,21 +453,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%80%BB%E7%BB%93/" rel="tag"># 总结</a>
+              <a href="/tags/DFS/" rel="tag"># DFS</a>
+              <a href="/tags/%E5%90%8C%E4%BD%99%E6%9C%80%E7%9F%AD%E8%B7%AF/" rel="tag"># 同余最短路</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/01/30/GDKOI-2021%E6%99%AE%E5%8F%8A%E7%BB%84DAY3/" rel="prev" title="GDKOI 2021普及组DAY3">
-                  <i class="fa fa-chevron-left"></i> GDKOI 2021普及组DAY3
+                <a href="/2021/02/27/GMOJ-5458-%E8%B4%A8%E6%95%B0/" rel="prev" title="GMOJ 5458.质数">
+                  <i class="fa fa-chevron-left"></i> GMOJ 5458.质数
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY2/" rel="next" title="GDKOI 2021提高组DAY2">
-                  GDKOI 2021提高组DAY2 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

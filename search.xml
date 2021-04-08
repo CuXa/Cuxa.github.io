@@ -286,4 +286,148 @@ int main()
         <tag>预处理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>GMOJ 4722.跳楼机</title>
+    <url>/2021/03/18/GMOJ-4722-%E8%B7%B3%E6%A5%BC%E6%9C%BA/</url>
+    <content><![CDATA[<h3 id="题目原文"><a href="#题目原文" class="headerlink" title="题目原文"></a>题目原文</h3><p>DJL为了避免成为一只咸鱼，来找srwudi学习压代码的技巧。<br>Srwudi的家是一幢h层的摩天大楼。由于前来学习的蒟蒻越来越多，srwudi改造了一个跳楼机，使得访客可以更方便的上楼。<br>经过改造，srwudi的跳楼机可以采用以下四种方式移动：<br>1、向上移动x层；<br>2、向上移动y层；<br>3、向上移动z层；<br>4、回到第一层。<br>一个月黑风高的大中午，DJL来到了srwudi的家，现在他在srwudi家的第一层，碰巧跳楼机也在第一层。DJL想知道，他可以乘坐跳楼机前往的楼层数。</p>
+<a id="more"></a>
+
+<h4 id="简化版"><a href="#简化版" class="headerlink" title="简化版"></a>简化版</h4><p>输入h,x,y,z。</p>
+<p>现在有三种操作：</p>
+<p>1.向前走x格。</p>
+<p>2.向前走y格。</p>
+<p>3.向前走z格。</p>
+<p>而你现在在第一格。</p>
+<p>现在问：他可以到达的并且小于等于h的格数。</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><pre><code class="html">15
+4 7 9
+</code></pre>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code class="html">9
+</code></pre>
+<h4 id="样例解释"><a href="#样例解释" class="headerlink" title="样例解释"></a>样例解释</h4><pre><code class="html">可以到达的：1，5=1+4，8=1+7，9=1+4+4,10=1+9,12=1+7+4,13=1+4+4+4,14=1+4+9,15=1+7+7
+</code></pre>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><pre><code class="html">20%的数据，1≤h, x, y, z≤100；
+40%的数据，1≤h, x, y, z≤10^5；
+100%的数据，1≤h≤10^18，1≤x, y, z≤10^5
+</code></pre>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><h5 id="40"><a href="#40" class="headerlink" title="40%"></a>40%</h5><p>直接完全背包莽过去</p>
+<p>时间复杂度O（h）</p>
+<p>空间复杂度O（h）</p>
+<h6 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h6><pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+int
+ n,a,b,c,ans;
+bool
+ dp[50000001];
+int main()
+&#123;
+    scanf(&quot;%d%d%d%d&quot;,&amp;n,&amp;a,&amp;b,&amp;c);
+    dp[1]=1;
+    for(int i=1;i&lt;=n;i++)
+        if(dp[i]) dp[i+a]=dp[i+b]=dp[i+c]=1,ans++;
+    printf(&quot;%d&quot;,ans);
+&#125;
+</code></pre>
+<h5 id="100"><a href="#100" class="headerlink" title="100%"></a>100%</h5><p>设a[i]为b%x==i时b的最小值</p>
+<p>b的定义为只用y和z能走到的格子</p>
+<p>那么答案就是:</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+\sum_{i=0}^{x-1}\lfloor\frac{h-a[i]}{x}\rfloor+1
+" /></p>
+<p>问题就转换为如何求a[i]的值</p>
+<p>很容易就可以得到两个转移</p>
+<p><img src="https://latex.codecogs.com/svg.image?\\a[(i+y)\bmod x]=a[i]+y\\
+a[(i+z)\bmod x]=a[i]+z" /></p>
+<p>那么现在就有两种方法了</p>
+<h5 id="方法1-同余最短路"><a href="#方法1-同余最短路" class="headerlink" title="方法1:同余最短路"></a>方法1:同余最短路</h5><p>将上面的公式看作为</p>
+<p>i到(i+y) mod x的边权值为a[i]+y</p>
+<p>i到(i+z) mod x的边权值为a[i]+z</p>
+<p>然后连边</p>
+<p>那么问题就转换成最短路问题</p>
+<p>spfa就解决了</p>
+<h6 id="程序"><a href="#程序" class="headerlink" title="程序"></a>程序</h6><pre><code class="c++">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+long long
+ n,m,x,y,z,d[10000001],bian[1000001],tot=1,q[1000001],hand,tail=1,ans;
+bool
+ a[10000001];
+struct s
+&#123;
+    int end,next,v;
+&#125;l[1000001];
+void add(int x,int y,int v)
+&#123;
+    l[tot].end=y;
+    l[tot].next=bian[x];
+    l[tot].v=v;
+    bian[x]=tot++;
+&#125;
+int main()
+&#123;
+    memset(d,100,sizeof(d));
+    scanf(&quot;%lld%lld%lld%lld&quot;,&amp;n,&amp;x,&amp;y,&amp;z);
+    if(x&gt;y) swap(x,y);
+    if(y&gt;z) swap(y,z);
+    if(x&gt;z) swap(x,z);
+    if(x==1)
+    &#123;
+        printf(&quot;%lld&quot;,n);
+        return 0;
+    &#125;
+    for(int i=0;i&lt;x;i++)
+    &#123;
+        add(i,(i+y)%x,y);
+        add(i,(i+z)%x,z);
+    &#125;
+    q[1]=1;
+    d[1]=1;
+    while(hand&lt;tail)
+    &#123;
+        int o=q[++hand];
+        a[o]=0;
+        for(int i=bian[o];i!=0;i=l[i].next)
+        &#123;
+            if(d[l[i].end]&gt;d[o]+l[i].v)
+            &#123;
+                d[l[i].end]=d[o]+l[i].v;
+                if(a[l[i].end]==0)
+                &#123;
+                    q[++tail]=l[i].end;
+                    a[l[i].end]=1;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+      for(int i=0;i&lt;x;i++)
+    &#123;
+        if(n&gt;=d[i])
+        ans=ans+(n-d[i])/x+1;
+    &#125;
+    printf(&quot;%lld&quot;,ans);
+&#125;
+</code></pre>
+<p>时间复杂度约o(x)</p>
+<p>常数略大，约100ms</p>
+<h5 id="方法2-BFS"><a href="#方法2-BFS" class="headerlink" title="方法2:BFS"></a>方法2:BFS</h5><p>由i拓展到(i+y) mod x和(i+z) mod x</p>
+<p>条件为+y、+z是否小于原来的值</p>
+<p>如果是则赋值</p>
+<p>判断是否在队列里</p>
+<p>如果没有就放进去</p>
+<p>代码较短，所以不贴出来了</p>
+<p>时间复杂度约x)</p>
+<p>常数较小，约30~50ms</p>
+<p>(这得看你的代码常数处理丑不丑陋了)</p>
+]]></content>
+      <categories>
+        <category>模拟赛题目</category>
+      </categories>
+      <tags>
+        <tag>DFS</tag>
+        <tag>同余最短路</tag>
+      </tags>
+  </entry>
 </search>
