@@ -430,4 +430,68 @@ int main()
         <tag>预处理</tag>
       </tags>
   </entry>
+  <entry>
+    <title>GDOI普及DAY1游记</title>
+    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/</url>
+    <content><![CDATA[<h4 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h4><h5 id="DAY0"><a href="#DAY0" class="headerlink" title="DAY0:"></a>DAY0:</h5><p>3点多坐车出发,5点多才到</p>
+<p>如何就去吃晚饭</p>
+<p>吃完之后教练让我们去逛一下校园</p>
+<p>然后找到了一个篮球场</p>
+<p>和里面的人打了场野球</p>
+<p>结果是被小学生们暴打</p>
+<p>宿舍9:30就熄灯了</p>
+<p>但是我们聊到了10多才睡觉</p>
+<a id="more"></a>
+
+<h5 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1:"></a>DAY1:</h5><p>早上7点没到就起床吃早餐</p>
+<p>u1s1,耀华的饭味道不错,就是盐在深圳有点点贵</p>
+<p>并且耀华还是”社会主义制度”</p>
+<p>可以让我们随便打饭(可能是给的钱多了,毕竟400一天</p>
+<p>早上讲座讲搜索与动态规划</p>
+<p>然后我就理所当然的没有听</p>
+<p>一直在腐败</p>
+<p>看会书再玩会魔方</p>
+<p>最后还睡着了</p>
+<p>中午午休也没有睡多久(因为听讲座的时候就睡了很久</p>
+<p>下午比赛的时候又睡着了</p>
+<p>比赛完之后还觉得是几道水题</p>
+<p>直到第二天看到成绩之后才发现这是好题</p>
+<p>然后第一天就这么浑浑噩噩的过去了</p>
+<p>晚上还偷吃了一碗泡面</p>
+<p>u1s1,真的香</p>
+<h4 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h4><h5 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h5><p>简单结论题,比赛2分钟推出了,但是因为数少了一个数</p>
+<p>导致了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+" /></p>
+<p>打成了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==0)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+-1" /></p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==1)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor" /></p>
+<p>最后还没有mod</p>
+<p>所以炸10</p>
+<h5 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h5><p>比赛打了个模拟wa40</p>
+<p>正解:可能就是模拟</p>
+<h5 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h5><p>比赛以为是爆搜</p>
+<p>然后炸0</p>
+<p>正解:不知道</p>
+<h5 id="估分"><a href="#估分" class="headerlink" title="估分"></a>估分</h5><p>100+100+50=250</p>
+<h5 id="实际"><a href="#实际" class="headerlink" title="实际"></a>实际</h5><p>10+40+0=50</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>T1原本是会做的,然后因为没有对拍,又极其低估了题目的难度,间接导致了到手的一等飞走了</p>
+]]></content>
+      <categories>
+        <category>GDOI</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GDOI普及DAY2游记</title>
+    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY2/</url>
+    <content><![CDATA[<h1 id="先咕着-以后再写"><a href="#先咕着-以后再写" class="headerlink" title="先咕着,以后再写"></a>先咕着,以后再写</h1>]]></content>
+  </entry>
 </search>

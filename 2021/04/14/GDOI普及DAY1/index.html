@@ -24,22 +24,33 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.2.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="【USACO】 Factorials阶乘题目大意   给定一个数n，求n！的最后面的非零位">
+<meta name="description" content="游记DAY0:3点多坐车出发,5点多才到 如何就去吃晚饭 吃完之后教练让我们去逛一下校园 然后找到了一个篮球场 和里面的人打了场野球 结果是被小学生们暴打 宿舍9:30就熄灯了 但是我们聊到了10多才睡觉">
 <meta property="og:type" content="article">
-<meta property="og:title" content="USACO Factorials阶乘">
-<meta property="og:url" content="http://example.com/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/index.html">
+<meta property="og:title" content="GDOI普及DAY1游记">
+<meta property="og:url" content="http://example.com/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/index.html">
 <meta property="og:site_name" content="CuXa&#39;s Blog">
-<meta property="og:description" content="【USACO】 Factorials阶乘题目大意   给定一个数n，求n！的最后面的非零位">
+<meta property="og:description" content="游记DAY0:3点多坐车出发,5点多才到 如何就去吃晚饭 吃完之后教练让我们去逛一下校园 然后找到了一个篮球场 和里面的人打了场野球 结果是被小学生们暴打 宿舍9:30就熄灯了 但是我们聊到了10多才睡觉">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-02-25T13:59:04.000Z">
-<meta property="article:modified_time" content="2021-02-27T07:29:14.343Z">
+<meta property="og:image" content="https://latex.codecogs.com/svg.image?
+\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+">
+<meta property="og:image" content="https://latex.codecogs.com/svg.image?
+if(i\mod2==0)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+-1">
+<meta property="og:image" content="https://latex.codecogs.com/svg.image?
+if(i\mod2==1)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor">
+<meta property="article:published_time" content="2021-04-14T13:02:34.000Z">
+<meta property="article:modified_time" content="2021-04-14T13:45:50.145Z">
 <meta property="article:author" content="CuXa">
-<meta property="article:tag" content="数学">
-<meta property="article:tag" content="题解">
+<meta property="article:tag" content="总结">
+<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://latex.codecogs.com/svg.image?
+\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+">
 
 
-<link rel="canonical" href="http://example.com/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/">
+<link rel="canonical" href="http://example.com/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/">
 
 
 <script class="page-configurations">
@@ -51,7 +62,7 @@
     lang   : 'zh-Hans'
   };
 </script>
-<title>USACO Factorials阶乘 | CuXa's Blog</title>
+<title>GDOI普及DAY1游记 | CuXa's Blog</title>
   
 
 
@@ -192,7 +203,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%90USACO%E3%80%91-Factorials%E9%98%B6%E4%B9%98"><span class="nav-number">1.</span> <span class="nav-text">【USACO】 Factorials阶乘</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%B8%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">游记</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#DAY0"><span class="nav-number">1.1.</span> <span class="nav-text">DAY0:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DAY1"><span class="nav-number">1.2.</span> <span class="nav-text">DAY1:</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">题目总结</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#T1"><span class="nav-number">2.1.</span> <span class="nav-text">T1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T2"><span class="nav-number">2.2.</span> <span class="nav-text">T2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#T3"><span class="nav-number">2.3.</span> <span class="nav-text">T3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BC%B0%E5%88%86"><span class="nav-number">2.4.</span> <span class="nav-text">估分</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E9%99%85"><span class="nav-number">2.5.</span> <span class="nav-text">实际</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -258,7 +269,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -271,7 +282,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          USACO Factorials阶乘
+          GDOI普及DAY1游记
         </h1>
 
         <div class="post-meta-container">
@@ -282,7 +293,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建于：2021-02-25 21:59:04" itemprop="dateCreated datePublished" datetime="2021-02-25T21:59:04+08:00">2021-02-25</time>
+      <time title="创建于：2021-04-14 21:02:34" itemprop="dateCreated datePublished" datetime="2021-04-14T21:02:34+08:00">2021-04-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +301,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/USACO/" itemprop="url" rel="index"><span itemprop="name">USACO</span></a>
+          <a href="/categories/GDOI/" itemprop="url" rel="index"><span itemprop="name">GDOI</span></a>
         </span>
     </span>
 
@@ -304,54 +315,53 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="【USACO】-Factorials阶乘"><a href="#【USACO】-Factorials阶乘" class="headerlink" title="【USACO】 Factorials阶乘"></a>【USACO】 Factorials阶乘</h1><p><strong>题目大意</strong></p>
-<p>  给定一个数n，求n！的最后面的非零位</p>
+        <h4 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h4><h5 id="DAY0"><a href="#DAY0" class="headerlink" title="DAY0:"></a>DAY0:</h5><p>3点多坐车出发,5点多才到</p>
+<p>如何就去吃晚饭</p>
+<p>吃完之后教练让我们去逛一下校园</p>
+<p>然后找到了一个篮球场</p>
+<p>和里面的人打了场野球</p>
+<p>结果是被小学生们暴打</p>
+<p>宿舍9:30就熄灯了</p>
+<p>但是我们聊到了10多才睡觉</p>
 <a id="more"></a>
 
-<p><strong>样例输入</strong></p>
-<p>  7</p>
-<p><strong>样例输出</strong></p>
-<p>  4</p>
-<p><strong>样例解释</strong></p>
-<p>  1 * 2 * 3 * 4 * 5 * 6 * 7 = 5040 </p>
-<p>  最后面的非零位是4</p>
-<p>  输出4</p>
-<p><strong>数据范围</strong></p>
-<p>  n&lt;=4,200</p>
-<p><strong>题解</strong></p>
-<p>  经典水题，与GDKOI的一题很像，也是求最后面的非零位，做法也差不多。先把n！看成1 * 2 * 3 * …* (n-1) * n然后分解质因数，并且把1~n每个质因数的个位数的个数存起来，再将2与5抵消，判断是否有剩5，如果有，那么直接输出5，没有就从2到7将剩余的乘起来，变为2^n[2] * 3^n[3]* 5^n[5] * 7^n[7] ,乘的时候取个位就好了，最后再输出，但其实最后一步可以改进，用规律来算，但是范围太小，不值得。</p>
-<p><strong>AC程序</strong></p>
-<pre><code class="c++">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-using namespace std;
-int
- n,p[100001],k,ans=1;
-int main()
-&#123;
-    scanf(&quot;%d&quot;,&amp;n);
-    for(int i=2;i&lt;=n;i++)
-    &#123;
-        k=i;
-        int j=2;
-        while(k!=1)
-        &#123;
-            while(k%j==0) p[j%10]++,k/=j;
-            j++;
-        &#125;
-    &#125;
-    int o=p[5];
-    p[5]=p[5]-min(o,p[2]),p[2]=p[2]-min(o,p[2]);
-    if(p[5]&gt;0)
-        printf(&quot;5&quot;);
-    else
-        for(int i=2;i&lt;=n;i++)
-            if(p[i]&gt;0)
-                for(int j=1;j&lt;=p[i];j++)
-                    ans=ans*i%10;
-    printf(&quot;%d&quot;,ans);
-&#125; 
-</code></pre>
+<h5 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1:"></a>DAY1:</h5><p>早上7点没到就起床吃早餐</p>
+<p>u1s1,耀华的饭味道不错,就是盐在深圳有点点贵</p>
+<p>并且耀华还是”社会主义制度”</p>
+<p>可以让我们随便打饭(可能是给的钱多了,毕竟400一天</p>
+<p>早上讲座讲搜索与动态规划</p>
+<p>然后我就理所当然的没有听</p>
+<p>一直在腐败</p>
+<p>看会书再玩会魔方</p>
+<p>最后还睡着了</p>
+<p>中午午休也没有睡多久(因为听讲座的时候就睡了很久</p>
+<p>下午比赛的时候又睡着了</p>
+<p>比赛完之后还觉得是几道水题</p>
+<p>直到第二天看到成绩之后才发现这是好题</p>
+<p>然后第一天就这么浑浑噩噩的过去了</p>
+<p>晚上还偷吃了一碗泡面</p>
+<p>u1s1,真的香</p>
+<h4 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h4><h5 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h5><p>简单结论题,比赛2分钟推出了,但是因为数少了一个数</p>
+<p>导致了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+" /></p>
+<p>打成了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==0)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+-1" /></p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==1)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor" /></p>
+<p>最后还没有mod</p>
+<p>所以炸10</p>
+<h5 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h5><p>比赛打了个模拟wa40</p>
+<p>正解:可能就是模拟</p>
+<h5 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h5><p>比赛以为是爆搜</p>
+<p>然后炸0</p>
+<p>正解:不知道</p>
+<h5 id="估分"><a href="#估分" class="headerlink" title="估分"></a>估分</h5><p>100+100+50=250</p>
+<h5 id="实际"><a href="#实际" class="headerlink" title="实际"></a>实际</h5><p>10+40+0=50</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>T1原本是会做的,然后因为没有对拍,又极其低估了题目的难度,间接导致了到手的一等飞走了</p>
 
     </div>
 
@@ -361,21 +371,21 @@ int main()
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%95%B0%E5%AD%A6/" rel="tag"># 数学</a>
-              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"># 题解</a>
+              <a href="/tags/%E6%80%BB%E7%BB%93/" rel="tag"># 总结</a>
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"># 游记</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/01/31/GDKOI-2021%E6%8F%90%E9%AB%98%E7%BB%84DAY3/" rel="prev" title="GDKOI 2021提高组DAY3">
-                  <i class="fa fa-chevron-left"></i> GDKOI 2021提高组DAY3
+                <a href="/2021/03/18/GMOJ-4722-%E8%B7%B3%E6%A5%BC%E6%9C%BA/" rel="prev" title="GMOJ 4722.跳楼机">
+                  <i class="fa fa-chevron-left"></i> GMOJ 4722.跳楼机
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/02/27/GMOJ-5458-%E8%B4%A8%E6%95%B0/" rel="next" title="GMOJ 5458.质数">
-                  GMOJ 5458.质数 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY2/" rel="next" title="GDOI普及DAY2游记">
+                  GDOI普及DAY2游记 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
