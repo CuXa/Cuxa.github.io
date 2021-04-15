@@ -66,18 +66,62 @@
       </tags>
   </entry>
   <entry>
-    <title>GDKOI 2021普及组DAY2</title>
-    <url>/2021/01/30/GDKOI-2021%E6%99%AE%E5%8F%8A%E7%BB%84DAY2/</url>
-    <content><![CDATA[<p>T1： 初中OJ2473<br>比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数<br>对拍真的很重要，所以一定要对拍！！！！！！！！！！</p>
+    <title>GDOI普及DAY1游记</title>
+    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/</url>
+    <content><![CDATA[<h4 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h4><h5 id="DAY0"><a href="#DAY0" class="headerlink" title="DAY0:"></a>DAY0:</h5><p>3点多坐车出发,5点多才到</p>
+<p>如何就去吃晚饭</p>
+<p>吃完之后教练让我们去逛一下校园</p>
+<p>然后找到了一个篮球场</p>
+<p>和里面的人打了场野球</p>
+<p>结果是被小学生们暴打</p>
+<p>宿舍9:30就熄灯了</p>
+<p>但是我们聊到了10多才睡觉</p>
 <a id="more"></a>
-<p>T2： 初中OJ2474<br>想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深<br>T3： 初中OJ2475<br>想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，到2^j出来或不出来的费用，然后这就很麻烦，所以就没有继续推，正解是找进入地狱门的最佳方位，方向是对的，但是方法找错<br>T4： 初中OJ2476<br>比赛连爆搜都没想出来，应该是二分图匹配，没有分析好数据，忘记了可以对半分，最后再把剩下的0/1矩阵二分图匹配一下就好了</p>
-<p>比赛总结：Day2的题目比Day1的题目上了不是一个等级，还是太过于弱，思想比较浅，没有想更深层次的东西，没有找到用这个算法的方法，导致T2和T3想得过于复杂，没有发挥这些的作用，思维能力还是太弱了，平时太怠惰了，没有练多少题，以后要多刷题了，再怠惰下去就蛋了。（还有T1的细节，细节方面真的太不好了，太过于粗心了）</p>
+
+<h5 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1:"></a>DAY1:</h5><p>早上7点没到就起床吃早餐</p>
+<p>u1s1,耀华的饭味道不错,就是盐在深圳有点点贵</p>
+<p>并且耀华还是”社会主义制度”</p>
+<p>可以让我们随便打饭(可能是给的钱多了,毕竟400一天</p>
+<p>早上讲座讲搜索与动态规划</p>
+<p>然后我就理所当然的没有听</p>
+<p>一直在腐败</p>
+<p>看会书再玩会魔方</p>
+<p>最后还睡着了</p>
+<p>中午午休也没有睡多久(因为听讲座的时候就睡了很久</p>
+<p>下午比赛的时候又睡着了</p>
+<p>比赛完之后还觉得是几道水题</p>
+<p>直到第二天看到成绩之后才发现这是好题</p>
+<p>然后第一天就这么浑浑噩噩的过去了</p>
+<p>晚上还偷吃了一碗泡面</p>
+<p>u1s1,真的香</p>
+<h4 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h4><h5 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h5><p>简单结论题,比赛2分钟推出了,但是因为数少了一个数</p>
+<p>导致了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+" /></p>
+<p>打成了这个</p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==0)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
+-1" /></p>
+<p><img src="https://latex.codecogs.com/svg.image?
+if(i\mod2==1)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor" /></p>
+<p>最后还没有mod</p>
+<p>所以炸10</p>
+<h5 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h5><p>比赛打了个模拟wa40</p>
+<p>正解:可能就是模拟</p>
+<h5 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h5><p>比赛以为是爆搜</p>
+<p>然后炸0</p>
+<p>正解:不知道</p>
+<h5 id="估分"><a href="#估分" class="headerlink" title="估分"></a>估分</h5><p>100+100+50=250</p>
+<h5 id="实际"><a href="#实际" class="headerlink" title="实际"></a>实际</h5><p>10+40+0=50</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>T1原本是会做的,然后因为没有对拍,又极其低估了题目的难度,间接导致了到手的一等飞走了</p>
 ]]></content>
       <categories>
-        <category>GDKOI</category>
+        <category>GDOI</category>
       </categories>
       <tags>
         <tag>总结</tag>
+        <tag>游记</tag>
       </tags>
   </entry>
   <entry>
@@ -240,6 +284,11 @@ int main()
       </tags>
   </entry>
   <entry>
+    <title>GDOI普及DAY2游记</title>
+    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY2/</url>
+    <content><![CDATA[<h1 id="先咕着-以后再写"><a href="#先咕着-以后再写" class="headerlink" title="先咕着,以后再写"></a>先咕着,以后再写</h1>]]></content>
+  </entry>
+  <entry>
     <title>USACO Factorials阶乘</title>
     <url>/2021/02/25/USACO-Factorials%E9%98%B6%E4%B9%98/</url>
     <content><![CDATA[<h1 id="【USACO】-Factorials阶乘"><a href="#【USACO】-Factorials阶乘" class="headerlink" title="【USACO】 Factorials阶乘"></a>【USACO】 Factorials阶乘</h1><p><strong>题目大意</strong></p>
@@ -304,6 +353,21 @@ int main()
     <url>/2021/01/30/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>弄了很久这个网站，终于在今天弄出来了<br>这个网站将会成为我以后放置博客的网站<br>最近也会把以前的总结搬上来<br>网站也会逐渐完善<br>谢谢大家资瓷( •̀ ω •́ )✧<br>然后现在正在学习MD<br>学完就可以更快乐的玩耍了</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>GDKOI 2021普及组DAY2</title>
+    <url>/2021/01/30/GDKOI-2021%E6%99%AE%E5%8F%8A%E7%BB%84DAY2/</url>
+    <content><![CDATA[<p>T1： 初中OJ2473<br>比赛又因为细节打炸了，x和y打反了，而且是一半，所以只有特判（n，n）的分数<br>对拍真的很重要，所以一定要对拍！！！！！！！！！！</p>
+<a id="more"></a>
+<p>T2： 初中OJ2474<br>想到了搜索，大概思路差不多，但是没有想到如此妙的方法，导致DFS乱搞，结果直接BFS就结束了，题目想得还是不够深<br>T3： 初中OJ2475<br>想到了倍增，并且思路与正解也差不多，但是关于地狱门的存储想法上有差异，我的是从这里进地狱，到2^j出来或不出来的费用，然后这就很麻烦，所以就没有继续推，正解是找进入地狱门的最佳方位，方向是对的，但是方法找错<br>T4： 初中OJ2476<br>比赛连爆搜都没想出来，应该是二分图匹配，没有分析好数据，忘记了可以对半分，最后再把剩下的0/1矩阵二分图匹配一下就好了</p>
+<p>比赛总结：Day2的题目比Day1的题目上了不是一个等级，还是太过于弱，思想比较浅，没有想更深层次的东西，没有找到用这个算法的方法，导致T2和T3想得过于复杂，没有发挥这些的作用，思维能力还是太弱了，平时太怠惰了，没有练多少题，以后要多刷题了，再怠惰下去就蛋了。（还有T1的细节，细节方面真的太不好了，太过于粗心了）</p>
+]]></content>
+      <categories>
+        <category>GDKOI</category>
+      </categories>
+      <tags>
+        <tag>总结</tag>
+      </tags>
   </entry>
   <entry>
     <title>GMOJ 5458.质数</title>
@@ -429,69 +493,5 @@ int main()
         <tag>题解</tag>
         <tag>预处理</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>GDOI普及DAY1游记</title>
-    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY1/</url>
-    <content><![CDATA[<h4 id="游记"><a href="#游记" class="headerlink" title="游记"></a>游记</h4><h5 id="DAY0"><a href="#DAY0" class="headerlink" title="DAY0:"></a>DAY0:</h5><p>3点多坐车出发,5点多才到</p>
-<p>如何就去吃晚饭</p>
-<p>吃完之后教练让我们去逛一下校园</p>
-<p>然后找到了一个篮球场</p>
-<p>和里面的人打了场野球</p>
-<p>结果是被小学生们暴打</p>
-<p>宿舍9:30就熄灯了</p>
-<p>但是我们聊到了10多才睡觉</p>
-<a id="more"></a>
-
-<h5 id="DAY1"><a href="#DAY1" class="headerlink" title="DAY1:"></a>DAY1:</h5><p>早上7点没到就起床吃早餐</p>
-<p>u1s1,耀华的饭味道不错,就是盐在深圳有点点贵</p>
-<p>并且耀华还是”社会主义制度”</p>
-<p>可以让我们随便打饭(可能是给的钱多了,毕竟400一天</p>
-<p>早上讲座讲搜索与动态规划</p>
-<p>然后我就理所当然的没有听</p>
-<p>一直在腐败</p>
-<p>看会书再玩会魔方</p>
-<p>最后还睡着了</p>
-<p>中午午休也没有睡多久(因为听讲座的时候就睡了很久</p>
-<p>下午比赛的时候又睡着了</p>
-<p>比赛完之后还觉得是几道水题</p>
-<p>直到第二天看到成绩之后才发现这是好题</p>
-<p>然后第一天就这么浑浑噩噩的过去了</p>
-<p>晚上还偷吃了一碗泡面</p>
-<p>u1s1,真的香</p>
-<h4 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h4><h5 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h5><p>简单结论题,比赛2分钟推出了,但是因为数少了一个数</p>
-<p>导致了这个</p>
-<p><img src="https://latex.codecogs.com/svg.image?
-\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
-" /></p>
-<p>打成了这个</p>
-<p><img src="https://latex.codecogs.com/svg.image?
-if(i\mod2==0)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor
--1" /></p>
-<p><img src="https://latex.codecogs.com/svg.image?
-if(i\mod2==1)\lfloor\frac{max_{i=1}^{i=n} a[i]}{2}\rfloor" /></p>
-<p>最后还没有mod</p>
-<p>所以炸10</p>
-<h5 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h5><p>比赛打了个模拟wa40</p>
-<p>正解:可能就是模拟</p>
-<h5 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h5><p>比赛以为是爆搜</p>
-<p>然后炸0</p>
-<p>正解:不知道</p>
-<h5 id="估分"><a href="#估分" class="headerlink" title="估分"></a>估分</h5><p>100+100+50=250</p>
-<h5 id="实际"><a href="#实际" class="headerlink" title="实际"></a>实际</h5><p>10+40+0=50</p>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>T1原本是会做的,然后因为没有对拍,又极其低估了题目的难度,间接导致了到手的一等飞走了</p>
-]]></content>
-      <categories>
-        <category>GDOI</category>
-      </categories>
-      <tags>
-        <tag>总结</tag>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GDOI普及DAY2游记</title>
-    <url>/2021/04/14/GDOI%E6%99%AE%E5%8F%8ADAY2/</url>
-    <content><![CDATA[<h1 id="先咕着-以后再写"><a href="#先咕着-以后再写" class="headerlink" title="先咕着,以后再写"></a>先咕着,以后再写</h1>]]></content>
   </entry>
 </search>
